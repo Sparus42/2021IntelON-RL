@@ -47,7 +47,9 @@ class CityFlow_1x1_LowTraffic(gym.Env):
         #super(CityFlow_1x1_LowTraffic, self).__init__()
         # hardcoded settings from "config.json" file
         self.config_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "1x1_config")
+        print(self.config_dir)
         self.cityflow = cityflow.Engine(os.path.join(self.config_dir, "config.json"), thread_num=1)
+        print(self.cityflow)
         self.intersection_id = "intersection_1_1"
 
         self.sec_per_step = 1.0
@@ -94,13 +96,13 @@ class CityFlow_1x1_LowTraffic(gym.Env):
          "road_1_1_1",
          "road_1_1_2",
          "road_1_1_3"]
-         
+
         start road id:
         ["road_0_1_0",
         "road_1_0_1",
         "road_2_1_2",
         "road_1_2_3"]
-        
+
         lane id:
         ["road_0_1_0_0",
          "road_0_1_0_1",
@@ -118,7 +120,7 @@ class CityFlow_1x1_LowTraffic(gym.Env):
          "road_1_1_2_1",
          "road_1_1_3_0",
          "road_1_1_3_1"]
-         
+
          start lane id:
          ["road_0_1_0_0",
          "road_0_1_0_1",
@@ -134,12 +136,12 @@ class CityFlow_1x1_LowTraffic(gym.Env):
         assert self.mode == "all_all" or self.mode == "start_waiting", "mode must be one of 'all_all' or 'start_waiting'"
         """
         `mode` variable changes both reward and state.
-        
+
         "all_all":
             - state: waiting & running vehicle count from all lanes (incoming & outgoing)
             - reward: waiting vehicle count from all lanes
-            
-        "start_waiting" - 
+
+        "start_waiting" -
             - state: only waiting vehicle count from only start lanes (only incoming)
             - reward: waiting vehicle count from start lanes
         """
@@ -150,7 +152,7 @@ class CityFlow_1x1_LowTraffic(gym.Env):
         if self.mode == "start_waiting":
             self.state_space = len(self.start_lane_ids)
         """
-        
+
         self.action_space = spaces.Discrete(9)
         if self.mode == "all_all":
             self.observation_space = spaces.MultiDiscrete([100]*16)
