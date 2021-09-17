@@ -31,4 +31,7 @@ model = DQN.load("deepq_1x1")
 obs = env.reset()
 while True:
     action, _states = model.predict(obs)
-    obs, rewards, dones, info = env.step(action)
+    obs, rewards, done, info = env.step(action)
+
+    if done == True:
+        obs = env.reset()
