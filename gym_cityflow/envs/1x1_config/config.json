@@ -1,7 +1,7 @@
 {
 	"interval": 1.0,
 	"seed": 1,
-	"dir": "/2021IntelON-RL/gym_cityflow/envs/1x1_config/",
+	"dir": "envs/1x1_config/",
 	"roadnetFile": "roadnet.json",
 	"flowFile": "flow.json",
 	"rlTrafficLight": true,
