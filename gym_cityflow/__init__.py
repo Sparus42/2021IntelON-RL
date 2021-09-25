@@ -10,7 +10,7 @@ register(
 )
 
 register(
-    id='CityFlow-Custom', # use id to pass to gym.make(id)
+    id='CityFlow-Custom-v0', # use id to pass to gym.make(id)
     entry_point='gym_cityflow.envs:CityFlow_Custom'
     # max_episode_steps =
     # reward_threshold =
