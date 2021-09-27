@@ -182,7 +182,7 @@ class CityFlow_Custom(gym.Env):
 
 
     def reset(self):
-        self.cityflow.reset()
+        self.cityflow.reset(seed=True)
         self.is_done = False
         self.current_step = 0
 
