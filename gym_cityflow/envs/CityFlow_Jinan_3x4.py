@@ -343,12 +343,12 @@ class CityFlow_Jinan_3x4(gym.Env):
             self.state_space = len(self.start_lane_ids)
         """
 
-        self.action_space = spaces.Box(0, 9, shape=[12, 1] dtype=np.int_)
+        self.action_space = spaces.Box(0, 9, shape=[12, 1], dtype=np.int_)
         if self.mode == "all_all":
-            self.observation_space = spaces.Box(0, np.inf, shape=[self.num_lanes, 1] dtype=np.int_)
+            self.observation_space = spaces.Box(0, np.inf, shape=[self.num_lanes, 1], dtype=np.int_)
         else:
             #dummy
-            self.observation_space = spaces.Box(0, np.inf, shape=[1, 1] dtype=np.int_)
+            self.observation_space = spaces.Box(0, np.inf, shape=[1, 1], dtype=np.int_)
 
     def step(self, action):
         assert self.action_space.contains(action), "%r (%s) invalid"%(action, type(action))
