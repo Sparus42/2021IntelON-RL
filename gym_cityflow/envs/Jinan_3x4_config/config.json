@@ -1,0 +1,11 @@
+{
+	"interval": 1.0,
+	"dir": "/content/2021IntelON-RL/gym_cityflow/envs/Jinan_3x4_config/",
+	"roadnetFile": "roadnet.json",
+	"flowFile": "flow.json",
+	"rlTrafficLight": true,
+	"saveReplay": true,
+	"roadnetLogFile": "roadnetlog.json",
+	"replayLogFile": "replay.txt",
+	"laneChange": true
+}
