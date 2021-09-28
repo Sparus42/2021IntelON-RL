@@ -342,11 +342,11 @@ class CityFlow_Jinan_3x4(gym.Env):
             self.state_space = len(self.start_lane_ids)
         """
 
-        self.action_space = spaces.MultiDiscrete([9]*12)
+        self.action_space = spaces.Tuple(tuple([9]*12))
         if self.mode == "all_all":
-            self.observation_space = spaces.MultiDiscrete([100]*186)
+            self.observation_space = spaces.Tuple(tuple([100]*186))
         else:
-            self.observation_space = spaces.MultiDiscrete([100]*8)
+            self.observation_space = spaces.Tuple(tuple([100]*8))
 
     def step(self, action):
         assert self.action_space.contains(action), "%r (%s) invalid"%(action, type(action))
