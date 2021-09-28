@@ -85,6 +85,7 @@ class CityFlow_Jinan_3x4(gym.Env):
              "road_1_2_3_1"]
              """
 
+        self.num_lanes = 186
         self.all_lane_ids = \
             ["road_0_1_0_0",
             "road_0_1_0_1",
@@ -342,9 +343,9 @@ class CityFlow_Jinan_3x4(gym.Env):
             self.state_space = len(self.start_lane_ids)
         """
 
-        self.action_space = spaces.Tuple(tuple([9]*12))
+        self.action_space = spaces.Box(0, 9, shape=[12, 1] dtype=int)
         if self.mode == "all_all":
-            self.observation_space = spaces.Tuple(tuple([100]*186))
+            self.observation_space = spaces.Box(0, np.inf, shape=[self.num_lanes, 1] dtype=int)
         else:
             self.observation_space = spaces.Tuple(tuple([100]*8))
 
