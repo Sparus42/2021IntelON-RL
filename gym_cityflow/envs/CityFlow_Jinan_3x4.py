@@ -347,7 +347,8 @@ class CityFlow_Jinan_3x4(gym.Env):
         if self.mode == "all_all":
             self.observation_space = spaces.Box(0, np.inf, shape=[self.num_lanes, 1] dtype=int)
         else:
-            self.observation_space = spaces.Tuple(tuple([100]*8))
+            #dummy
+            self.observation_space = spaces.Box(0, np.inf, shape=[1, 1] dtype=int)
 
     def step(self, action):
         assert self.action_space.contains(action), "%r (%s) invalid"%(action, type(action))
