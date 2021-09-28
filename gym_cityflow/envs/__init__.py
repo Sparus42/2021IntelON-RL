@@ -1,2 +1,3 @@
 from gym_cityflow.envs.CityFlow_1x1_LowTraffic import CityFlow_1x1_LowTraffic
 from gym_cityflow.envs.CityFlow_Custom import CityFlow_Custom
+from gym_cityflow.envs.CityFlow_3x4_Jinan import CityFlow_3x4_Jinan
