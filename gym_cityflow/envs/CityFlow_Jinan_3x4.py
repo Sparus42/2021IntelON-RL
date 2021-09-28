@@ -54,7 +54,7 @@ class CityFlow_Jinan_3x4(gym.Env):
 
         self.sec_per_step = 1.0
 
-        self.steps_per_episode = 100
+        self.steps_per_episode = 3600
         self.current_step = 0
         self.is_done = False
         self.reward_range = (-float('inf'), float('inf'))
