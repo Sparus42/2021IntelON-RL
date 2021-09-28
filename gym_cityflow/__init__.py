@@ -17,7 +17,7 @@ register(
 )
 
 register(
-    id='CityFlow-Jinan_3x4-v0', # use id to pass to gym.make(id)
+    id='CityFlow-Jinan-3x4-v0', # use id to pass to gym.make(id)
     entry_point='gym_cityflow.envs:CityFlow_Jinan_3x4'
     # max_episode_steps =
     # reward_threshold =
