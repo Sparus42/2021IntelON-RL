@@ -8,5 +8,5 @@
 	"saveReplay": true,
 	"roadnetLogFile": "roadnetlog.json",
 	"replayLogFile": "replay.txt",
-	"laneChange": true
+	"laneChange": false
 }
