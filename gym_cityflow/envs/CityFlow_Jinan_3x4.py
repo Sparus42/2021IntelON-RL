@@ -343,7 +343,7 @@ class CityFlow_Jinan_3x4(gym.Env):
             self.state_space = len(self.start_lane_ids)
         """
 
-        self.action_space = spaces.Box(0, 9, shape=(12,), dtype=np.int_)
+        self.action_space = spaces.MultiDiscrete([9]*12)
         if self.mode == "all_all":
             self.observation_space = spaces.Box(0, np.inf, shape=(self.num_lanes,), dtype=np.int_)
         else:
