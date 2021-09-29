@@ -344,6 +344,7 @@ class CityFlow_Jinan_3x4(gym.Env):
         """
 
         self.action_space = spaces.Box(0, 9, shape=[12,0], dtype=np.int_)
+        print(len(np.shape(self.action_space)))
         if self.mode == "all_all":
             self.observation_space = spaces.Box(0, np.inf, shape=[self.num_lanes,0], dtype=np.int_)
         else:
