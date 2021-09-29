@@ -351,7 +351,10 @@ class CityFlow_Jinan_3x4(gym.Env):
             self.observation_space = spaces.Box(0, 100, shape=(1,), dtype=np.int_)
 
     def step(self, action):
-        assert self.action_space.contains(action), "%r (%s) invalid"%(action, type(action))
+        action = np.rint(action)
+        action = action.astype(int)
+
+        #assert self.action_space.contains(action), "%r (%s) invalid"%(action, type(action))
 
         for i, id in enumerate(self.intersection_ids):
             self.cityflow.set_tl_phase(id, action[i])
