@@ -404,6 +404,8 @@ class CityFlow_Jinan_3x4(gym.Env):
             for i in range(len(self.start_lane_ids)):
                 state[i] = lane_waiting_vehicles_dict[self.start_lane_ids[i]]
 
+        assert self.observation_space.contains(state), "%r (%s) invalid"%(state, type(state))
+
         return state
 
     def _get_reward(self):
