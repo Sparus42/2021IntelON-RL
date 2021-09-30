@@ -394,13 +394,13 @@ class CityFlow_Jinan_3x4(gym.Env):
         state = None
 
         if self.mode=="all_all":
-            state = np.zeros(len(self.all_lane_ids) * 2, dtype=np.float32)
+            state = np.zeros(len(self.all_lane_ids) * 2, dtype=int)
             for i in range(len(self.all_lane_ids)):
                 state[i*2] = lane_vehicles_dict[self.all_lane_ids[i]]
                 state[i*2 + 1] = lane_waiting_vehicles_dict[self.all_lane_ids[i]]
 
         if self.mode=="start_waiting":
-            state = np.zeros(len(self.start_lane_ids), dtype=np.float32)
+            state = np.zeros(len(self.start_lane_ids), dtype=int)
             for i in range(len(self.start_lane_ids)):
                 state[i] = lane_waiting_vehicles_dict[self.start_lane_ids[i]]
 
