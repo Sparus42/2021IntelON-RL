@@ -343,18 +343,18 @@ class CityFlow_Jinan_3x4(gym.Env):
             self.state_space = len(self.start_lane_ids)
         """
 
-        self.action_space = spaces.Box(0, 9, shape=(12,), dtype=np.int_)
+        self.action_space = spaces.Box(0, 9, shape=(12,), dtype=int)
         if self.mode == "all_all":
-            self.observation_space = spaces.Box(0, 100, shape=(self.num_lanes*2,), dtype=np.int_)
+            self.observation_space = spaces.Box(0, 100, shape=(self.num_lanes*2,), dtype=int)
         else:
             #dummy
-            self.observation_space = spaces.Box(0, 100, shape=(1,), dtype=np.int_)
+            self.observation_space = spaces.Box(0, 100, shape=(1,), dtype=int)
 
     def step(self, action):
-        action = np.rint(action)
+        #action = np.rint(action)
         action = action.astype(int)
 
-        #assert self.action_space.contains(action), "%r (%s) invalid"%(action, type(action))
+        assert self.action_space.contains(action), "%r (%s) invalid"%(action, type(action))
 
         for i, id in enumerate(self.intersection_ids):
             self.cityflow.set_tl_phase(id, action[i])
