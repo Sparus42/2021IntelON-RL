@@ -345,10 +345,10 @@ class CityFlow_Jinan_3x4(gym.Env):
 
         self.action_space = spaces.Box(0, 8, shape=(12,), dtype=int)
         if self.mode == "all_all":
-            self.observation_space = spaces.Box(0, 100, shape=(self.num_lanes*2,), dtype=int)
+            self.observation_space = spaces.Box(0, 200, shape=(self.num_lanes*2,), dtype=int)
         else:
             #dummy
-            self.observation_space = spaces.Box(0, 100, shape=(1,), dtype=int)
+            self.observation_space = spaces.Box(0, 200, shape=(1,), dtype=int)
 
     def step(self, action):
         #action = np.rint(action)
