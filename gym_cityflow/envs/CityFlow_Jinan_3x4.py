@@ -343,7 +343,7 @@ class CityFlow_Jinan_3x4(gym.Env):
             self.state_space = len(self.start_lane_ids)
         """
 
-        self.action_space = spaces.Box(0, 8, shape=(12,), dtype=int)
+        self.action_space = spaces.Box(-4, 4, shape=(12,), dtype=int)
         if self.mode == "all_all":
             self.observation_space = spaces.Box(0, 200, shape=(self.num_lanes*2,), dtype=int)
         else:
@@ -357,7 +357,7 @@ class CityFlow_Jinan_3x4(gym.Env):
         assert self.action_space.contains(action), "%r (%s) invalid"%(action, type(action))
 
         for i, id in enumerate(self.intersection_ids):
-            self.cityflow.set_tl_phase(id, action[i])
+            self.cityflow.set_tl_phase(id, (action[i]+4))
         self.cityflow.next_step()
 
         state = self._get_state()
